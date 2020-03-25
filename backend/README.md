@@ -21,7 +21,7 @@ For connect postgres database change values at *./src/database/config.json*
     "dialect": "postgres"
   },
 ```
-Use the script above for run th server at 3000 port
+Use the script above for run th server at 3333 port
 ```
 npm run start
 ```

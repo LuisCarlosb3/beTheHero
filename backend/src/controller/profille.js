@@ -6,6 +6,7 @@ exports.index = async (req, res, next) => {
     const ong_id = req.headers.authorization;
     const numCases = await Incident.count({ where: { ong_id } });
     const incidents = await Incident.findAll({
+      where: { ong_id },
       limit: 5,
       offset: (page - 1) * 5,
       include: {
