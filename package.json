@@ -1,0 +1,15 @@
+{
+    "name": "bethehero",
+    "version": "1.0.0",
+    "description": "backend application for project created on Oministack Week 11",
+    "main": "src/index.js",
+    "scripts": {
+      "backend":"npm run start --prefix backend/",
+      "frontend":" npm run start --prefix react/",
+      "start": "concurrently \"npm run backend\" \"npm run frontend\""
+    },
+    "keywords": [],
+    "author": "Luis Carlos Galvão",
+    "license": "ISC"
+  }
+  
