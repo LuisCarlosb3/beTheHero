@@ -1,8 +1,19 @@
 const { incidents: Incident } = require("../database/models/index");
-
+const { ong: Ong } = require("../database/models/index");
 exports.index = async (req, res, next) => {
   try {
-    const incidents = await Incident.findAll();
+    const { page = 1 } = req.query;
+    const numCases = await Incident.count();
+    const incidents = await Incident.findAll({
+      limit: 5,
+      offset: (page - 1) * 5,
+      include: {
+        model: Ong,
+        attributes: ["name", "email", "whatsapp", "city", "uf"],
+        required: true
+      }
+    });
+    res.header("X-Total-Count", numCases);
     res.status(200).json({ incidents });
   } catch (error) {
     console.log(error);
