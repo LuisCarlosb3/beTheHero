@@ -47,8 +47,6 @@ exports.delete = async (req, res, next) => {
       attributes: ["ong_id"],
       raw: true
     });
-    console.log(ong_id);
-    console.log(incident);
     if (incident.ong_id != ong_id) {
       const error = new Error("User not authorized");
       error.status = 403;
